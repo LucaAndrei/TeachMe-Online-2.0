@@ -1,0 +1,30 @@
+<app-page-title>Profile</app-page-title>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card shadow">
+            <div class="card-body">
+                <app-list-errors [errors]="errors"></app-list-errors>
+
+                <form [formGroup]="settingsForm" (ngSubmit)="submitForm()">
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="image"
+                            placeholder="URL of profile picture" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="username" placeholder="Username" />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" formControlName="email" placeholder="Email" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+                    </div>
+                    <app-button [disabled]="!settingsForm.valid" [btnClass]="'btn-block'" (onClick)="submitForm()">
+                        Update Settings</app-button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

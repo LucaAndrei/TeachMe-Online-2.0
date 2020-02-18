@@ -1,0 +1,37 @@
+// Custom Dropdown Styling
+
+.dropdown {
+    .dropdown-menu {
+        font-size: $dropdown-font-size;
+
+        animation-name: growIn;
+        animation-duration: 200ms;
+        animation-timing-function: transform cubic-bezier(0.18, 1.25, 0.4, 1), opacity cubic-bezier(0, 1, 0.4, 1);
+
+        .dropdown-header {
+            @extend .text-uppercase;
+            font-weight: 800;
+            font-size: 0.65rem;
+            color: $gray-500;
+        }
+    }
+}
+
+// Utility class to hide arrow from dropdown
+
+.dropdown.no-arrow {
+    .dropdown-toggle::after {
+        display: none;
+    }
+}
+
+@keyframes growIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

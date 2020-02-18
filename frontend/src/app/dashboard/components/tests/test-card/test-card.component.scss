@@ -1,0 +1,10 @@
+.card {
+    &:not(.disabled) {
+        .card-body {
+            cursor: pointer;
+        }
+    }
+    &.disabled {
+        pointer-events: none;
+    }
+}

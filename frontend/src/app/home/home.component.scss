@@ -1,0 +1,42 @@
+.feature {
+    p {
+        font-weight: 300;
+        color: #999;
+        b {
+            color: #000;
+        }
+    }
+}
+
+.pb-6 {
+    padding-bottom: 6rem;
+}
+section {
+    padding-top: 6rem;
+}
+.strip-grey {
+    background-color: #f7f7f7;
+}
+.strip-white {
+    background-color: #fff;
+}
+.contact {
+    * {
+        font-family: "Roboto Mono", monospace;
+    }
+
+    i.fa {
+        border: 2px solid rgb(206, 210, 214);
+        border-radius: 50%;
+        padding: 1rem;
+    }
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        transition: all 0.5s;
+    }
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

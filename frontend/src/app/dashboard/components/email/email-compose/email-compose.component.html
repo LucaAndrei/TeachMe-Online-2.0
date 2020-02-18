@@ -1,0 +1,37 @@
+<app-page-title>Email Compose</app-page-title>
+
+<div class="card shadow">
+    <div class="card-header">
+        <div class="email-toolbar">
+            <app-button [btnClass]="'btn-secondary'" (onClick)="back()"><i class="fas fa-arrow-left"></i></app-button>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="emailForm" (ngSubmit)="submitForm()">
+            <fieldset [disabled]="isSubmitting">
+                <div class="form-group form-inline">
+                    <label for="from">From</label>
+                    <input id="from" formControlName="from" class="form-control" type="text" />
+                </div>
+                <div class="form-group form-inline">
+                    <label for="from">To</label>
+                    <input formControlName="to" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.to.errors && f.to.touched }" type="text" />
+                </div>
+                <div class="form-group form-inline">
+                    <label for="from">Subject</label>
+                    <input formControlName="subject" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.subject.errors && f.subject.touched }" type="text" />
+                </div>
+                <div class="form-group form-inline">
+                    <app-ngx-editor [placeholder]="'Enter text here...'" [config]="editorConfig"
+                        formControlName="content" class="w-100"
+                        [ngClass]="{ 'is-invalid': f.to.errors && f.to.touched }">
+                    </app-ngx-editor>
+                </div>
+
+                <app-button [disabled]="!emailForm.valid" (onClick)="submitForm()">Send</app-button>
+            </fieldset>
+        </form>
+    </div>
+</div>

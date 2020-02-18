@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block" [ngClass]="bgClass"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-800 mb-4">{{title}}</h1>
+                                </div>
+                                <app-list-errors [errors]="errors"></app-list-errors>
+
+
+                                <form [formGroup]="userForm" class="user" (ngSubmit)="submitForm()">
+                                    <div class="form-group" *ngIf="authType == 'register'">
+                                        <input type="text" class="form-control form-control-user"
+                                            formControlName="username" placeholder="Enter Username..."
+                                            [ngClass]="{ 'is-invalid': f.username.errors && f.username.touched }" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user"
+                                            formControlName="email" placeholder="Enter Email Address..."
+                                            [ngClass]="{ 'is-invalid': f.email.errors && f.email.touched }" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user"
+                                            formControlName="password" placeholder="Password"
+                                            [ngClass]="{ 'is-invalid': f.password.errors && f.password.touched }">
+                                    </div>
+                                    <app-button [disabled]="!userForm.valid" [btnClass]="'btn-user btn-block'"
+                                        (onClick)="submitForm()">{{btnTitle}}</app-button>
+                                    <ng-container *ngIf="authType === 'register' || authType === 'login'">
+                                        <hr />
+                                        <app-button [btnClass]="'btn-google btn-user btn-block'"
+                                            (onClick)="submitForm()"><i class="fab fa-google fa-fw"></i> {{btnTitle}}
+                                            with Google</app-button>
+                                        <app-button [btnClass]="'btn-facebook btn-user btn-block'"
+                                            (onClick)="submitForm()">
+                                            <i class="fab fa-facebook-f fa-fw"></i> {{btnTitle}} with Facebook
+                                        </app-button>
+                                    </ng-container>
+                                </form>
+                                <hr />
+
+                                <div class="text-center" *ngIf="authType === 'register' || authType === 'activate'">
+                                    <a class="small" [routerLink]="['/login']">Already have an account? Login!</a>
+                                </div>
+                                <div class="text-center" *ngIf="authType == 'login' || authType === 'activate'">
+                                    <a class="small" [routerLink]="['/register']">Need an account?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

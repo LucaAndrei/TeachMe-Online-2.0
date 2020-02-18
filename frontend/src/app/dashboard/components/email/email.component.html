@@ -1,0 +1,36 @@
+<div class="card shadow">
+    <div class="card-header">
+        <div class="email-toolbar">
+            <div class="custom-control custom-checkbox" (click)="$event.stopPropagation()">
+                <input type="checkbox" class="custom-control-input" id="selectAll" (click)="selectAll()"
+                    [checked]="selectedRows.length === emails.length">
+                <label class="custom-control-label" for="selectAll"></label>
+            </div>
+
+            <app-button [route]="'/app/email/new'" [btnClass]="'ml-2 mr-2'">Compose</app-button>
+            <app-button [btnClass]="'btn-secondary'" *ngIf="selectedRows.length" (onClick)="deleteEmails()">
+                <i class="fas fa-trash"></i></app-button>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-borderless table-hover">
+                <tbody>
+                    <tr *ngFor="let email of emails" (click)="selectEmail(email)"
+                        [ngClass]="{'bg-gray-100': email.read, 'bg-gray-400': email.selected }">
+                        <td scope="row">
+                            <div class="custom-control custom-checkbox" (click)="$event.stopPropagation()">
+                                <input type="checkbox" class="custom-control-input" id="{{email.id}}"
+                                    (click)="checkboxClick(email)" [checked]="email.selected">
+                                <label class="custom-control-label" for="{{email.id}}"></label>
+                            </div>
+                        </td>
+                        <td [ngClass]="{'font-weight-bold' : !email.read}">{{email.sender}}</td>
+                        <td [ngClass]="{'font-weight-bold' : !email.read}">{{email.subject}}</td>
+                        <td [ngClass]="{'font-weight-bold' : !email.read}">{{email.date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

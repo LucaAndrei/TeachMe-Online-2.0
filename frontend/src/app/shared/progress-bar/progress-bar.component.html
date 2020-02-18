@@ -1,0 +1,7 @@
+<div class="progress-bar-container">
+    <progress min="0" max="100" value="{{(100/(progressBarSteps.length-1))*currentQuestionIndex}}"></progress>
+    <div class="d-flex justify-content-between">
+        <div *ngFor="let number of progressBarSteps" class="progress-indicator"
+            [ngClass]="{'active': currentQuestionIndex === number || completedSteps[number] !== null}"></div>
+    </div>
+</div>

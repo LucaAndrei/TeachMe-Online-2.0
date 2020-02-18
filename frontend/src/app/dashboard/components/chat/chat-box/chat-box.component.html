@@ -1,0 +1,44 @@
+<div class="card shadow h-100">
+    <div class="card-header d-flex align-items-center px-0">
+        <app-button [btnClass]="'btn-sm btn-light mx-2'" (onClick)="back.emit()">
+            <i class="fas fa-arrow-left"></i>
+        </app-button>
+
+        <div class="d-flex mr-auto">
+
+            <img class="img-fluid rounded-circle" style="max-width:20%" src="{{recipient.image}}" alt="avatar" />
+            <div class="d-flex justify-content-center flex-column mx-2">
+                <div class="font-weight-bold small text-truncate">{{recipient.username}}</div>
+                <span class="small">{{recipient.isOnline ? 'Active now' : 'Offline'}}</span>
+            </div>
+        </div>
+        <app-button [btnClass]="'btn-sm btn-light mx-2'" (onClick)="onMinimize.emit()">
+            <i class="far fa-window-minimize"></i>
+        </app-button>
+    </div>
+    <div class="card-body scroll-y" #messageThread>
+        <ul class="list-unstyled">
+            <app-chat-message class="py-3" [message]="message" *ngFor="let message of messages" [user]="user">
+            </app-chat-message>
+        </ul>
+
+        <div class="message-thread start-chatting-banner" *ngIf="messages.length === 0">
+            <p class="heading">
+                You haven't chatted with {{recipient.username}} in a while,
+                <span class="sub-heading">Say Hi.</span>
+            </p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="chat-message d-flex">
+            <div class="input-group">
+                <input class="form-control" type="text" (keyup)="sendMessage($event)" [(ngModel)]="text" />
+                <div class="input-group-append">
+                    <app-button>
+                        <i class="fas fa-paper-plane"></i>
+                    </app-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand bg-white topbar mb-4 shadow fixed-top" *ngIf="(showHeader$ | async)">
+    <a class="navbar-brand d-flex align-items-center" [routerLink]="['/']">
+        <i class="fas fa-graduation-cap fa-2x"></i>
+        <span class="ml-3 d-none d-sm-block">Teach Me</span>
+    </a>
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/']">Features</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="currentUser.isAdmin ? ['/app/dashboard'] : ['/app/email']"
+                *ngIf="currentUser">Dashboard</a>
+        </li>
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']" *ngIf="!currentUser">Sign In</a>
+        </li>
+    </ul>
+    <app-button [btnClass]="'m-3'" [route]="'/register'" *ngIf="!currentUser">Sign up</app-button>
+    <p>{{currentUser && currentUser.role}}</p>
+</nav>

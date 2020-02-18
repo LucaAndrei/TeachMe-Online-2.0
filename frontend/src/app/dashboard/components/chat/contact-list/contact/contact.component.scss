@@ -1,0 +1,25 @@
+@import "../../../../../../assets/scss/variables";
+li {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        color: $gray-800;
+    }
+    img {
+        max-width: 20%;
+    }
+}
+
+.offline {
+    color: $red;
+}
+
+.me {
+    color: $blue;
+}
+
+.online {
+    color: $green;
+}

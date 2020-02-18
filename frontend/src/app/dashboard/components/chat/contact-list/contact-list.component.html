@@ -1,0 +1,20 @@
+<div class="card shadow h-100">
+    <div class="card-header d-flex align-items-end">
+        <div class="search mr-auto">
+            <input class="p-2" type="text" placeholder="search" />
+            <i class="fa fa-search"></i>
+        </div>
+        <app-button [btnClass]="'btn-sm btn-light'" (onClick)="onMinimize.emit()">
+            <i class="far fa-window-minimize"></i>
+        </app-button>
+        <!-- <app-button [btnClass]="'btn-sm btn-light'" (onClick)="onClose.emit(null)">
+            <i class="fas fa-times"></i>
+        </app-button> -->
+    </div>
+    <div class="card-body scroll-y">
+        <ul class="list-unstyled">
+            <app-contact *ngFor="let contact of contacts" [contact]="contact" (click)="onContactSelect.emit(contact)">
+            </app-contact>
+        </ul>
+    </div>
+</div>

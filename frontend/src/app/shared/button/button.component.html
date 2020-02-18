@@ -1,0 +1,5 @@
+<a [routerLink]="route" class="btn btn-primary" (click)="onClick.emit()"
+    class="{{btnClass}}"
+    [ngClass]="{'disabled' : disabled}">
+    <ng-content></ng-content>
+</a>

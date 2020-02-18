@@ -1,0 +1,64 @@
+.progress-bar-container {
+    position: relative;
+    padding: 1rem;
+}
+
+progress {
+    position: absolute;
+    top: 50%;
+    -moz-appearance: none;
+    appearance: none;
+    background: #007bff;
+    width: calc(100% - 2rem);
+    height: 2.5px;
+    z-index: 1;
+    -webkit-transition: 1s;
+    transition: 1s;
+    will-change: contents;
+}
+progress::-webkit-progress-bar {
+    background-color: #007bff;
+}
+progress::-webkit-progress-value {
+    background-color: #153f65;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.progress-indicator {
+    width: 15px;
+    height: 15px;
+    background: #ffffff;
+    border: 3px solid #007bff;
+    border-radius: 50%;
+    z-index: 2;
+}
+.progress-indicator.active {
+    -webkit-animation: bounce 0.5s forwards;
+    animation: bounce 0.5s forwards;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    border-color: #153f65;
+}
+
+@-webkit-keyframes bounce {
+    50% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    50% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}

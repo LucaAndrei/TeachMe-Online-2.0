@@ -1,0 +1,22 @@
+<li>
+    <div class="d-flex align-items-center mb-3" [ngClass]="{'justify-content-end': user.username !== message.from} ">
+        <ng-container *ngIf="user.username === message.from">
+            <span class="text-gray-400 p-1">{{message.date}}</span>
+            <span>{{message.from}}</span>
+            <i class="fa fa-circle small m-1 me"></i>
+        </ng-container>
+
+        <ng-container *ngIf="user.username !== message.from">
+            <span>{{message.from}}</span>
+
+            <span class="text-gray-400 p-1">{{message.date}}</span>
+            <i class="fa fa-circle small m-1" [ngClass]="{'online': message.from}"></i>
+        </ng-container>
+
+    </div>
+    <div class="message p-3" [ngClass]="{
+        'my-message bg-success': user.username === message.from,
+        'other-message bg-info': user.username !== message.from}">
+        {{message.text}}
+    </div>
+</li>

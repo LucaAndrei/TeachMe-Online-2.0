@@ -1,0 +1,10 @@
+<li class="my-1">
+    <img class="img-fluid rounded-circle" src="{{contact.image}}" alt="avatar" />
+    <div class="ml-2">
+        <div class="name">{{contact.username}}</div>
+        <div class="d-flex align-items-center text-gray-600">
+            <i class="fa fa-circle small m-1 offline" [ngClass]="{'online' : contact.isOnline}"></i>
+            {{contact.isOnline ? 'Online' : 'Offline'}}
+        </div>
+    </div>
+</li>

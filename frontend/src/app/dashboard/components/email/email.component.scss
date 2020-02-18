@@ -1,0 +1,17 @@
+.email-toolbar {
+    display: flex;
+    align-items: center;
+    padding-left: 0.75rem;
+}
+.table {
+    tbody {
+        tr {
+            cursor: pointer;
+            td {
+                &:first-child {
+                    width: 20px;
+                }
+            }
+        }
+    }
+}

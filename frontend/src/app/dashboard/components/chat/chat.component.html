@@ -1,0 +1,24 @@
+<div class="position-fixed mr-3 mb-3 chat-box" *ngIf="!minimized">
+    <app-contact-list [contacts]="contacts" (onContactSelect)="onContactSelect($event)" *ngIf="!selectedContact"
+        (onMinimize)="minimized = true"></app-contact-list>
+    <app-chat-box [recipient]="selectedContact" [messages]="messages" [user]="user" *ngIf="selectedContact"
+        (back)="selectedContact = null" (onMinimize)="minimized = true" (onSendMessage)="sendMessage($event)">
+    </app-chat-box>
+</div>
+
+<div class="position-fixed mr-3 mb-3 chat-box chat-box-minimized" *ngIf="minimized">
+
+    <div class="card" *ngIf="selectedContact">
+        <div class="card-body p-2">
+            <img alt="avatar" class="img-fluid rounded-circle" src="{{selectedContact.image}}">
+            {{selectedContact.username}}
+
+            <app-button [btnClass]="'btn-sm btn-light mx-2 float-right'" (onClick)="minimized = false">
+                <i class="far fa-window-maximize"></i>
+            </app-button>
+        </div>
+    </div>
+    <div class="card open-chat-card" *ngIf="!selectedContact" (click)="minimized = false">
+        <div class="card-body p-2">Open Chat</div>
+    </div>
+</div>

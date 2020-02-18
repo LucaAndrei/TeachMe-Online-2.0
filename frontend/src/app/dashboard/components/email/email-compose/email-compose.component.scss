@@ -1,0 +1,14 @@
+.form-group {
+    label {
+        width: 60px;
+        justify-content: flex-start;
+    }
+    input {
+        width: calc(100% - 60px - 0.5rem);
+    }
+}
+.email-toolbar {
+    display: flex;
+    align-items: center;
+    padding-left: 0.75rem;
+}

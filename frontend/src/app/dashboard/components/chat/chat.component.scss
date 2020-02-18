@@ -1,0 +1,18 @@
+.chat-box {
+    width: calc(100% - 1.5rem - 6.5rem);
+    height: calc(70% - 4.375rem - 1.5rem);
+    bottom: 0;
+    right: 0;
+    z-index: 1020;
+}
+.chat-box-minimized {
+    height: auto;
+    .card .card-body {
+        img {
+            max-width: 10%;
+        }
+    }
+    .open-chat-card {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,18 @@
+<div class="card shadow mb-4" [ngClass]="{
+        'bg-gray-500 text-gray-800 border-left-0 disabled': disabled,
+        'border-left-success': type === 'assignment' && !disabled,
+        'border-left-danger': type === 'practice' && !disabled}">
+    <div class="card-header" [ngClass]="{'bg-gray-500 border-bottom-0' : disabled}">
+        <h6 class="m-0 font-weight-bold" [ngClass]="{
+                'text-success': type === 'assignment' && !disabled,
+                'text-danger': type === 'practice' && !disabled,
+                'text-gray-800' : disabled
+            }">{{title}}</h6>
+    </div>
+    <div class="card-body" [ngClass]="{'btn-light': !disabled}" [routerLink]="route">
+        <div class="practice-test text-center text-md-left">
+            <p>{{description}}</p>
+            <p>{{dueDate}}</p>
+        </div>
+    </div>
+</div>

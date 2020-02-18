@@ -1,0 +1,20 @@
+<div id="wrapper">
+    <app-sidebar [menuTabs]="menuTabs" [user]="currentUser" [showSidebar]="(showSidebar$ | async)"
+        (onToggleSidebar)="onToggleSidebar()"></app-sidebar>
+
+
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <app-topbar [user]="currentUser" (onToggleSidebar)="onToggleSidebar()"></app-topbar>
+
+            <div class="container-fluid">
+                <app-page-title *ngIf="activeMenuTab">{{activeMenuTab.menuItem.name}}</app-page-title>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <app-footer></app-footer>
+
+        <app-chat [contacts]="contacts"></app-chat>
+
+    </div>
+</div>
